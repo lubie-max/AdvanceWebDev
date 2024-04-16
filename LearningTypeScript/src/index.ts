@@ -1,5 +1,18 @@
 
-let Myname: string = "lubna"
+// let Myname: string = "lubna"
+
+// console.log(name , age)
+
+// if (age > 20){
+//     age = age + 5
+// }
+
+// console.log(age)
+
 let age: number = 22 
 
-console.log(name , age)
+if (age> 20){
+    age += 5
+}
+
+console.log(age)
