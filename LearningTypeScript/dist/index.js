@@ -38,9 +38,11 @@ let Employee = {
     id: 1,
     name: 'Lubna',
     retirementDATE: (date) => {
-        console.log(date);
+        const d = new Date(date.getFullYear());
+        console.log(d);
+        return d;
     }
 };
 Employee.name = "shaikh";
-console.log(Employee.name, Employee.retirementDATE);
+console.log(Employee.name, Employee.retirementDATE, Employee.id);
 //# sourceMappingURL=index.js.map
