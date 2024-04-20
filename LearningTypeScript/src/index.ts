@@ -69,6 +69,23 @@ let Employee:{
 
 }
 Employee.name= "shaikh"
-console.log(Employee.name, Employee.retirementDATE. , Employee.id)
+// console.log(Employee.name, Employee.retirementDATE , Employee.id)
+
+// Aliases  [DRY]
+
+type EmployeeBase = {
+    id : number,
+    username : string,
+    baseId : string | number
+}
+
+
+const  Emp :EmployeeBase = {
+    id : 123,
+    username : 'Lubna',
+    baseId : '123LS'
+}
+
+console.log(Emp.baseId , Emp.username)
 
 

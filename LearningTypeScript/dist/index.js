@@ -44,5 +44,10 @@ let Employee = {
     }
 };
 Employee.name = "shaikh";
-console.log(Employee.name, Employee.retirementDATE, Employee.id);
+const Emp = {
+    id: 123,
+    username: 'Lubna',
+    baseId: '123LS'
+};
+console.log(Emp.baseId, Emp.username);
 //# sourceMappingURL=index.js.map
