@@ -49,5 +49,14 @@ const Emp = {
     username: 'Lubna',
     baseId: '123LS'
 };
-console.log(Emp.baseId, Emp.username);
+// console.log(Emp.baseId , Emp.username)
+// Union Aliase
+function kgToPaunds(weight) {
+    if (typeof weight === 'string')
+        return parseInt(weight) * 2.2;
+    else
+        return weight * 2.2;
+}
+kgToPaunds('10');
+kgToPaunds(3);
 //# sourceMappingURL=index.js.map

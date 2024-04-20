@@ -71,6 +71,8 @@ let Employee:{
 Employee.name= "shaikh"
 // console.log(Employee.name, Employee.retirementDATE , Employee.id)
 
+
+
 // Aliases  [DRY]
 
 type EmployeeBase = {
@@ -86,6 +88,43 @@ const  Emp :EmployeeBase = {
     baseId : '123LS'
 }
 
-console.log(Emp.baseId , Emp.username)
+// console.log(Emp.baseId , Emp.username)
+
+
+
+
+// Union Aliase
+function kgToPaunds(weight:number| string){
+
+    if (typeof weight === 'string')
+        return parseInt(weight) * 2.2
+
+    else
+    return weight * 2.2
+}
+
+// kgToPaunds('10')
+// kgToPaunds(3)
+
+
+// Intersection Aliases
+
+type Dragable = {
+    dragY : (y:number) => void,
+}
+
+type Movable = {
+    moveRight : (x:number) => void,
+
+}
+
+type UIWidget =  Dragable & Movable 
+const Photo : UIWidget ={
+
+    dragY : () =>{},
+    moveRight : (x:number) => {}
+
+}
+
 
 
