@@ -126,5 +126,14 @@ const Photo : UIWidget ={
 
 }
 
+console.log(Photo.moveRight)
+
+
+// Litaral types
+
+type Quantity = 50 | 100  // union operator is justify either this or that. other than these numbers everything else will throw an error.
+
+let q : Quantity = 50   // assigning 51 will throw an error while compilation 
+
 
 

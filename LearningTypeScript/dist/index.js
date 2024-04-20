@@ -57,6 +57,10 @@ function kgToPaunds(weight) {
     else
         return weight * 2.2;
 }
-kgToPaunds('10');
-kgToPaunds(3);
+const Photo = {
+    dragY: () => { },
+    moveRight: (x) => { }
+};
+
+console.log(Photo.moveRight);
 //# sourceMappingURL=index.js.map
