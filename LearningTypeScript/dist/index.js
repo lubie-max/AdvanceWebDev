@@ -59,8 +59,8 @@ function kgToPaunds(weight) {
 }
 const Photo = {
     dragY: () => { },
-    moveRight: (x) => { }
+    // moveRight : (x:number) => {}
 };
-
 console.log(Photo.moveRight);
+let q = 50; // assigning 51 will throw an error while compilation 
 //# sourceMappingURL=index.js.map

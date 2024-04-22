@@ -114,7 +114,7 @@ type Dragable = {
 }
 
 type Movable = {
-    moveRight : (x:number) => void,
+    moveRight? : (x:number) => void,
 
 }
 
@@ -122,7 +122,7 @@ type UIWidget =  Dragable & Movable
 const Photo : UIWidget ={
 
     dragY : () =>{},
-    moveRight : (x:number) => {}
+    // moveRight : (x:number) => {}
 
 }
 
