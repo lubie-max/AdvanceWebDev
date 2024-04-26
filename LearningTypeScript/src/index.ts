@@ -137,3 +137,26 @@ let q : Quantity = 50   // assigning 51 will throw an error while compilation
 
 
 
+let fruits: string[] = ['apple', 'orange', 'banana', 'kiwi']
+
+
+fruits.forEach((fruit:string) => {
+    
+    if (fruit == 'banana')
+        {
+            console.log(fruit + ' I love shake!');
+        }
+
+    else {
+
+        console.log(`This is ${fruit}`)
+    }
+        
+        
+
+})
+
+
+
+
+

@@ -63,4 +63,13 @@ const Photo = {
 };
 console.log(Photo.moveRight);
 let q = 50; // assigning 51 will throw an error while compilation 
+let fruits = ['apple', 'orange', 'banana', 'kiwi'];
+fruits.forEach((fruit) => {
+    if (fruit == 'banana') {
+        console.log(fruit + ' I love shake!');
+    }
+    else {
+        console.log(`This is ${fruit}`);
+    }
+});
 //# sourceMappingURL=index.js.map
