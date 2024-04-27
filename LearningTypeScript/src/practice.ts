@@ -78,7 +78,8 @@ switch(color){
 }
 
 
-console.log(colorCode('grey'))
+// console.log(colorCode('grey'))
+// console.log(colorCode('white'))
 
 
 
@@ -97,4 +98,48 @@ export const COLORS: string[] = [
 ];
 
 
-console.log(COLORS)
+// console.log(COLORS)
+
+
+for(let i:number = 14 ; i > 5 ;i--){
+    console.log(i)
+
+    if(i == 10)
+        break
+}
+
+
+
+// OOP 
+/*
+ classes are used to create objects with specific behavior and data,
+  while interfaces are used to define the structure of objects 
+  and enforce contracts between different parts of the codebase.
+*/
+// interface
+
+interface print {
+    printValue() : void 
+}
+
+class ConstAndRule implements print{
+
+    username: string;
+    
+    constructor(username: string){
+        this.username = username
+    }
+
+   printValue() {
+       console.log(this.username)
+   }
+
+}
+
+let ls = new ConstAndRule('Lubna Shaikh')
+
+function printName(name: print){
+    name.printValue()
+}
+
+printName(ls)

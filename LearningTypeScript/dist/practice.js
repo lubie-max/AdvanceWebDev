@@ -48,7 +48,8 @@ const colorCode = (color) => {
     }
 };
 exports.colorCode = colorCode;
-console.log((0, exports.colorCode)('grey'));
+// console.log(colorCode('grey'))
+// console.log(colorCode('white'))
 exports.COLORS = [
     'black',
     'brown',
@@ -61,5 +62,23 @@ exports.COLORS = [
     'grey',
     'white',
 ];
-console.log(exports.COLORS);
+// console.log(COLORS)
+for (let i = 14; i > 5; i--) {
+    console.log(i);
+    if (i == 10)
+        break;
+}
+class ConstAndRule {
+    constructor(username) {
+        this.username = username;
+    }
+    printValue() {
+        console.log(this.username);
+    }
+}
+let ls = new ConstAndRule('Lubna Shaikh');
+function printName(name) {
+    name.printValue();
+}
+printName(ls);
 //# sourceMappingURL=practice.js.map
