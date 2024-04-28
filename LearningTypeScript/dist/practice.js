@@ -62,12 +62,6 @@ exports.COLORS = [
     'grey',
     'white',
 ];
-// console.log(COLORS)
-for (let i = 14; i > 5; i--) {
-    console.log(i);
-    if (i == 10)
-        break;
-}
 class ConstAndRule {
     constructor(username) {
         this.username = username;
@@ -80,5 +74,32 @@ let ls = new ConstAndRule('Lubna Shaikh');
 function printName(name) {
     name.printValue();
 }
-printName(ls);
+// printName(ls)
+// classes
+class Robot {
+    constructor(botName) {
+        this.botName = botName;
+    }
+    greet() {
+        return console.log(`HI ${this.botName.toUpperCase()} `);
+    }
+    actions(action) {
+        return console.log(`${this.botName} is ${action}`);
+    }
+}
+class IndustryRobot extends Robot {
+    constructor(botName) {
+        super(botName);
+    }
+    work(...actionsList) {
+        console.log(`HELLO ,${this.botName} `);
+        super.actions(actionsList[0]); // parent method call
+        actionsList.map(action => console.log(action));
+    }
+}
+let robot = new Robot('jack');
+// robot.greet()
+// robot.actions('dispatch')
+let iRobot = new IndustryRobot('Laura');
+iRobot.work('kicking', 'selling', 'chating', 'billing');
 //# sourceMappingURL=practice.js.map

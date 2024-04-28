@@ -101,12 +101,12 @@ export const COLORS: string[] = [
 // console.log(COLORS)
 
 
-for(let i:number = 14 ; i > 5 ;i--){
-    console.log(i)
+// for(let i:number = 14 ; i > 5 ;i--){
+//     console.log(i)
 
-    if(i == 10)
-        break
-}
+//     if(i == 10)
+//         break
+// }
 
 
 
@@ -142,4 +142,49 @@ function printName(name: print){
     name.printValue()
 }
 
-printName(ls)
+// printName(ls)
+
+// classes
+
+class Robot{
+    botName: string;
+
+    constructor(botName: string){
+
+        this.botName = botName
+    }
+
+    greet(){
+        return console.log(`HI ${this.botName.toUpperCase()} `)
+    }
+
+    actions(action: string) {
+       return console.log(`${this.botName} is ${action}`)
+    }
+    
+}
+
+class IndustryRobot extends Robot{
+
+    constructor(botName: string){
+        super(botName)
+    }
+
+    work(...actionsList: string[]){
+        console.log(`HELLO ,${this.botName} `)
+        super.actions(actionsList[0])  // parent method call
+
+        actionsList.map(action => console.log(action))
+
+    }
+   
+}
+
+
+let robot = new Robot('jack')
+// robot.greet()
+// robot.actions('dispatch')
+
+let iRobot = new IndustryRobot('Laura')
+
+iRobot.work('kicking','selling','chating','billing')
