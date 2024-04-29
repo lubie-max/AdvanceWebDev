@@ -77,8 +77,10 @@ function printName(name) {
 // printName(ls)
 // classes
 class Robot {
+    // protected botName: string;  //  if property is private, it's only accessible within the class. // if property is protected it's only accessible within the class and its superclasses , not outof classess.
     constructor(botName) {
         this.botName = botName;
+        // this.botName = botName
     }
     greet() {
         return console.log(`HI ${this.botName.toUpperCase()} `);
@@ -96,10 +98,14 @@ class IndustryRobot extends Robot {
         super.actions(actionsList[0]); // parent method call
         actionsList.map(action => console.log(action));
     }
+    modelNumber(num) {
+        console.log(`${this.botName}'s Model Number is ${num}`);
+    }
 }
 let robot = new Robot('jack');
 // robot.greet()
 // robot.actions('dispatch')
 let iRobot = new IndustryRobot('Laura');
 iRobot.work('kicking', 'selling', 'chating', 'billing');
+iRobot.modelNumber(3);
 //# sourceMappingURL=practice.js.map

@@ -147,11 +147,12 @@ function printName(name: print){
 // classes
 
 class Robot{
-    botName: string;
+    // protected botName: string;  //  if property is private, it's only accessible within the class. // if property is protected it's only accessible within the class and its superclasses , not outof classess.
 
-    constructor(botName: string){
+    constructor( protected botName: string){
 
-        this.botName = botName
+        // this.botName = botName  // we can also use get() and set() for setting this property.
+        
     }
 
     greet(){
@@ -177,6 +178,10 @@ class IndustryRobot extends Robot{
         actionsList.map(action => console.log(action))
 
     }
+
+    modelNumber(num : number){
+        console.log(`${this.botName}'s Model Number is ${num}`) 
+    }
    
 }
 
@@ -188,3 +193,5 @@ let robot = new Robot('jack')
 let iRobot = new IndustryRobot('Laura')
 
 iRobot.work('kicking','selling','chating','billing')
+
+iRobot.modelNumber(3)
