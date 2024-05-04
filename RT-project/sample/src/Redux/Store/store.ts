@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
+
+import searchImageSlice from '../Slices/searchImageSlice'
 // ...
 
 export const store = configureStore({
   reducer: {
-  
+   searchImageSlice
   },
 })
 

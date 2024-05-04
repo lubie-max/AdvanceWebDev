@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
+import TestComponent from './TestComponent';
 
 function MainContent() {
 
@@ -32,6 +33,7 @@ function MainContent() {
 
 
     }, [])
+    
 
 
     useEffect(()=>{
@@ -44,36 +46,11 @@ function MainContent() {
 
   return (
     <>
-      {/* <!-- Main Content --> */}
+     <div className="center">
 
-      <div className="container-fluid">
-    <div className="row min-vh-100">
+     <TestComponent/>
+     </div>
 
-      <div className="col-md-9">
-        <div className="p-4">
-          <h2>Main Content Area</h2>
-          <p>This is the main content area. You can add your content here.</p>
-
-          {
-            data.map((item, key)=>  (<>
-            {/* <h2>{item}</h2>
-             */}
-
-             {/* <link rel="stylesheet" href={item} key={key}/>
-              */}
-
-            <h4> Hi there. </h4>
-            
-            </>)
-            
-          )
-          }
-        </div>
-      </div>
-
-      </div>
-      </div>
-    
     </>
   )
 }
