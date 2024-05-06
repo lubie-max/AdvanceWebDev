@@ -1,8 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { useSelector } from 'react-redux'
-import { RootState } from '../Redux/Store/store'
-import { testReducer } from '../Redux/Slices/searchImageSlice'
+import { testReducer } from '../Redux/Slices/testSlice'
 import { useAppDispatch, useAppSelector } from '../Redux/hooks'
 
 function TestComponent() {

@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import searchImageSlice from '../Slices/searchImageSlice'
+import searchImageSlice from './Slices/testSlice'
 // ...
 
 export const store = configureStore({

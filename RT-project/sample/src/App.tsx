@@ -1,19 +1,13 @@
-import React from 'react';
-
+import Main from './Components/Main';
 import './App.css';
-import Sidebar from './Components/Sidebar';
-import MainContent from './Components/MainContent';
 
 function App() {
+ 
   return (
     <>
-    
 
 
-    <Sidebar ></Sidebar>
-    <MainContent />
-  
-
+      <Main />
    
     </>
   );
