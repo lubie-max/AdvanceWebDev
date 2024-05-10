@@ -1,4 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
+import axios from "axios"
+import { error } from "console"
+
+
+axios.defaults.baseURL = `https://images-api.nasa.gov`
 
 // collection.items
 interface imageData {
@@ -43,3 +48,20 @@ const  imageBySearchSlice = createSlice({
     initialState: intialStateForSearchImg,
     reducers: {}
 })
+
+
+const getImageBySearch = createAsyncThunk(
+    "getImageBy/searchImage",
+
+    async ()=>{
+        try{
+           const response = await axios.get('/search')
+           console.log('searchImage api response', response.data)
+           return response.data
+        }
+        catch{
+            console.log(error)
+
+        }
+    }
+)
