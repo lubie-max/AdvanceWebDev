@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import searchImageSlice from './Slices/testSlice'
+import searchImageSlice from './Slices/testSlice' // test component
+import imageBySearchSlice from './Slices/imageBySearchSlice'
 // ...
 
 export const store = configureStore({
   reducer: {
-   searchImageSlice
+   searchImageSlice,
+   imageBySearchSlice
   },
 })
 

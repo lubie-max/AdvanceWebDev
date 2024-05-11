@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
-import { error } from "console"
+// import { error } from "console"
+// import exp from "constants"
 
 
 axios.defaults.baseURL = `https://images-api.nasa.gov`
@@ -8,13 +9,7 @@ axios.defaults.baseURL = `https://images-api.nasa.gov`
 // collection.items
 interface imageData {
     href: string,
-    data: [{
-
-            title: string,
-            nasa_id: string,
-            keywords: string[],
-            description: string
-        }],
+    data: any[],
 
     links: [
         {
@@ -27,13 +22,7 @@ interface imageData {
 
 const intialStateForSearchImg: imageData = {
     href: "",
-    data: [{
-        title: "img",
-        nasa_id: "default nasa id",
-        keywords: [],
-        description: 'default description'
-
-    }],
+    data:[],
 
     links: [{
         href: 'default',
@@ -46,7 +35,13 @@ const intialStateForSearchImg: imageData = {
 const  imageBySearchSlice = createSlice({
     name: 'imageBySearch',
     initialState: intialStateForSearchImg,
-    reducers: {}
+    reducers: {},
+    extraReducers: (builder)=>{
+        builder.addCase(getImageBySearch.fulfilled,(state,actions)=>{
+
+            state.data.push(actions.payload)
+        })
+    }
 })
 
 
@@ -55,13 +50,17 @@ const getImageBySearch = createAsyncThunk(
 
     async ()=>{
         try{
-           const response = await axios.get('/search')
+           const response = await axios.get('/search?q=apollo')
            console.log('searchImage api response', response.data)
            return response.data
         }
         catch{
-            console.log(error)
+            console.log('something is fishy')
 
         }
     }
 )
+
+
+export  { getImageBySearch}   
+export default imageBySearchSlice.reducer

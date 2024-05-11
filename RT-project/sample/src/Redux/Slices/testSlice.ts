@@ -42,7 +42,7 @@ const intialStateForSearchImg: imageData = {
 
 
 const searchImageSlice = createSlice({
-    name: "search Image",
+    name: "searchImage",
     initialState: intialStateForSearchImg, 
     reducers: {
         testReducer: (state)=>{

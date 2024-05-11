@@ -30,6 +30,10 @@ const Carousel = () => {
     </ol>
   </aside>
 </section>
+<div>
+ <button type="button"> Click me to get data</button>
+
+</div>
     </>
   )
 }
