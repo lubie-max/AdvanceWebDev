@@ -8,26 +8,12 @@ axios.defaults.baseURL = `https://images-api.nasa.gov`
 
 // collection.items
 interface imageData {
-    href: string,
-    data: any[],
-
-    links: [
-        {
-            href: string,
-            rel: string
-        }
-    ]
+   data: any[]
 }
 
 
 const intialStateForSearchImg: imageData = {
-    href: "",
-    data:[],
-
-    links: [{
-        href: 'default',
-        rel: 'defaul tImg'
-    }]
+data: []
 
 }
 
@@ -62,5 +48,5 @@ const getImageBySearch = createAsyncThunk(
 )
 
 
-export  { getImageBySearch}   
+export  { getImageBySearch }   
 export default imageBySearchSlice.reducer

@@ -1,12 +1,6 @@
 
-
-
-import React from 'react'
-import SearchBar from './SearchBar'
-import { Carousel } from 'react-bootstrap'
-import { useDispatch } from 'react-redux'
 import { useAppDispatch, useAppSelector } from '../Redux/hooks'
-import imageBySearchSlice, { getImageBySearch } from '../Redux/Slices/imageBySearchSlice'
+import { getImageBySearch } from '../Redux/Slices/imageBySearchSlice'
 
 const Main = () => {
 
