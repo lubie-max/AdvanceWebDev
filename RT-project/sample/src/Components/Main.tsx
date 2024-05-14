@@ -1,18 +1,13 @@
 
 import { useAppDispatch, useAppSelector } from '../Redux/hooks'
-import { getImageBySearch } from '../Redux/Slices/imageBySearchSlice'
+
 
 const Main = () => {
 
 
-  const getData = useAppSelector((state)=>state.imageBySearchSlice.data)
+  const getData = useAppSelector((state)=>state.imageBySearchSlice.collection)
  const dispatch = useAppDispatch()
 
- const clickAction = () => {
-
-  dispatch(getImageBySearch())
-
- }
   return (
 
    <>
@@ -22,11 +17,11 @@ const Main = () => {
       {/* <!-- Carousel content goes here --> */}
 
       {/* <Carousel/> */}
-      <h1>Data</h1>
+      {/* <h1>Data</h1>
       {getData.map((item)=><>
       <h4>{item}</h4>
-      </>)}
-      <button onClick ={()=> clickAction()} >Click me to get the data</button>
+      </>)} */}
+      <button onClick ={()=> dispatch(getI)} >Click me to get the data</button>
     
     <div className="search-bar">
       <input type="text" placeholder="Search images..." />
