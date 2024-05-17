@@ -1,36 +1,33 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
-// import { error } from "console"
-// import exp from "constants"
+import { Collection} from "../Interfaces/imageBySearchResponse"
 
 
 axios.defaults.baseURL = `https://images-api.nasa.gov`
 
 // collection.items
 
-interface Item {}
-interface Link {}
+interface ImageState {
+    collection: Collection;
+  }
+  
+  const intialStateForSearchImg: ImageState = {
+    collection: {
+      href: '',
+      items: null,
+      links: null,
+      version: ''
+    }
+  };
 
-interface Collection{
-    version: string,
-    href : string,
-    items : Item[],
-    links : Link[]
-}
-interface imageData {
-    loading : boolean,
-    failed : boolean|string,
-
-    collection: Collection | null
-}
+// const intialStateForSearchImg: Collection = {
+//     href: "",
+//     items: [],
+//     links: [],
+//     version: ""
+// }
 
 
-const intialStateForSearchImg: imageData = {
-    loading: false,
-    failed : false,
-    collection: null,
-
-}
 
 
 const  imageBySearchSlice = createSlice({
@@ -41,19 +38,19 @@ const  imageBySearchSlice = createSlice({
         builder.addCase(getImageBySearch.fulfilled,(state,actions)=>{
 
             // state.data.push(actions.payload)
-            state.collection = actions.payload
+            state.collection = actions.payload.collection
             // state.collection 
         })
 
         builder.addCase(getImageBySearch.rejected,(state, actions)=>{
 
-            state.failed = true
+            // state.failed = true
 
         })
 
         builder.addCase(getImageBySearch.pending, (state, action)=>{
 
-            state.loading = true
+            // state.loading = true
         })
     }
 })
