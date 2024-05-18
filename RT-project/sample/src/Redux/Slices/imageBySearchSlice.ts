@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
-import { Collection} from "../Interfaces/imageBySearchResponse"
+// import { Collection} from "../Types/imageBySearchResponse"
+import { Collection } from "../Types/searchResponseTypes";
 
 
 axios.defaults.baseURL = `https://images-api.nasa.gov`
@@ -14,9 +15,10 @@ interface ImageState {
   const intialStateForSearchImg: ImageState = {
     collection: {
       href: '',
-      items: null,
-      links: null,
-      version: ''
+      items: [],
+      links: [],
+      version: '',
+      metadata: 0
     }
   };
 

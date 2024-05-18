@@ -9,14 +9,16 @@ import { useAppDispatch, useAppSelector } from '../Redux/hooks'
 const Main = () => {
 
 
-  const getCollection = useAppSelector((state)=>state.imageBySearchSlice.collection)
-  const getData = useAppSelector((state)=>state.imageBySearchSlice.collection.items)
-  const getHref = useAppSelector((state)=>state.imageBySearchSlice.collection.href)
+  const {href, items, links} = useAppSelector((state)=>state.imageBySearchSlice.collection)
+  const { } = useAppSelector((state)=>state.imageBySearchSlice.collection.items)
+  const f = items[0]
+
   const dispatch = useAppDispatch()
 
  useEffect(()=>{
   // const items = getData[collection][items]
-  console.log(getData)
+  // console.log(href, items.map((i)=> console.log(i.data)))
+  console.log(items.slice(0,1))
  }, [])
 
 //  console.log(getData?.map((item)=> console.log(item.data)))
@@ -25,22 +27,16 @@ const Main = () => {
    <>
    
    <div className="container">
-    {getCollection.version}
-  
-  {
-    getCollection.items?.map((item,key)=><>
-  {/* {key} */}
-<h1>{item.data[0].links.map((i)=> <> <img src={i.href} alt="" /></>)}</h1>
-
-<h4>{}</h4>
-{/* <figure>
-  <img  alt="Description of the image" />
-  <figcaption>Caption describing the image</figcaption>
-</figure> */}
-
+   {
+    links.map((link,k)=><>
+    
+    {/* <img src={link.href} alt="" />
+     */}
+     <h5 key={k}>{link.href}</h5>
 
     </>)
-  }
+   }
+  
 
 
       <button onClick ={()=> dispatch(getImageBySearch())} >Click me to get the data</button>
