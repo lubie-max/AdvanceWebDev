@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 // import { Collection} from "../Types/imageBySearchResponse"
-import { Collection } from "../Types/searchResponseTypes";
+import { Collection , MediaLinks } from "../Types/searchResponseTypes";
 
 
 axios.defaults.baseURL = `https://images-api.nasa.gov`
@@ -10,6 +10,7 @@ axios.defaults.baseURL = `https://images-api.nasa.gov`
 
 interface ImageState {
     collection: Collection;
+    medialinks : MediaLinks;
   }
   
   const intialStateForSearchImg: ImageState = {
@@ -19,15 +20,13 @@ interface ImageState {
       links: [],
       version: '',
       metadata: 0
-    }
-  };
+    },
 
-// const intialStateForSearchImg: Collection = {
-//     href: "",
-//     items: [],
-//     links: [],
-//     version: ""
-// }
+    medialinks: {
+        mlinks: []
+    }
+    
+  }
 
 
 
@@ -38,24 +37,29 @@ const  imageBySearchSlice = createSlice({
     reducers: {},
     extraReducers: (builder)=>{
         builder.addCase(getImageBySearch.fulfilled,(state,actions)=>{
-
             // state.data.push(actions.payload)
             state.collection = actions.payload.collection
             // state.collection 
         })
 
         builder.addCase(getImageBySearch.rejected,(state, actions)=>{
-
-            // state.failed = true
-
+        }).addCase(getImageBySearch.pending, (state, action)=>{
+   // state.loading = true
         })
 
-        builder.addCase(getImageBySearch.pending, (state, action)=>{
+        // media
 
-            // state.loading = true
-        })
-    }
-})
+        builder.addCase(
+            getMedia.fulfilled, (state, actions)=>{
+                state.medialinks.mlinks.push(actions.payload) 
+            }
+        )
+
+
+     
+}
+
+ })
 
 
 export const getImageBySearch = createAsyncThunk(
@@ -67,12 +71,21 @@ export const getImageBySearch = createAsyncThunk(
            console.log('searchImage api response', response.data)
            return response.data
         }
-        catch{
-            console.log('something is fishy')
+        catch(error){
+            console.log('something is fishy', error)
 
         }
     }
 )
 
+
+export const getMedia = createAsyncThunk(
+    "imageBysearch/getMedia",
+    async (url:string)=>{
+        const data = await axios.get(url)
+        console.log(data.data[0])
+        return data.data
+    }
+)
 
 export default imageBySearchSlice.reducer

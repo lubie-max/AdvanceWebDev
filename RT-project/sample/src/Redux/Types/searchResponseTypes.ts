@@ -64,3 +64,10 @@ export interface CollectionLink {
 export interface Metadata {
     total_hits: number;
 }
+
+
+// --------------------------------------- Media types
+
+export interface MediaLinks {
+   mlinks : string[]
+}
