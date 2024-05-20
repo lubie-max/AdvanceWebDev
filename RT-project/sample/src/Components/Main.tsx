@@ -28,7 +28,7 @@ const Main = () => {
   console.log(items.slice(0,1))
   console.log(links)
   console.log(
-    'media L', medialink
+    'media L', medialink.mlinks
   )
  }, [])
 console.log(url)
@@ -37,16 +37,28 @@ console.log(url)
 
    <>
    
-   <img src = 'https://images-assets.nasa.gov/video/Artemis Onward to the Moon/Artemis Onward to the Moon~thumb.jpg'></img>
-   <video controls width="600">
-      {/* <source src="https://images-assets.nasa.gov/video/NHQ_2019_0311_Go Forward to the Moon.mp4" type="video/mp4" /> */}
-      <track translate="yes" src='https://images-assets.nasa.gov/video/Artemis Onward to the Moon/Artemis Onward to the Moon.srt'></track>
+   {
+
+    medialink.mlinks?.map((i, k)=><>
+    {/* <p color='green'>{i}</p> */}
+    <p key={k}>{i}</p>
+
+<div>
+    <video controls width="600" key={k}>
+      <source src={i} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
+</div>
+    </>)
+   }
+   {/* 
+   <img src = 'https://images-assets.nasa.gov/video/Artemis Onward to the Moon/Artemis Onward to the Moon~thumb.jpg'></img> */}
+
+
       <button onClick ={()=> dispatch(getImageBySearch())} >Click me to get the data</button>
 
-{/* <button onClick={()=>dispatch(getMedia())}> Media </button> */}
+<button onClick={()=>dispatch(getMedia('https://images-assets.nasa.gov/video/NHQ_2018_0131_Super%20Blue%20Moon%20Lunar%20Eclipse/collection.json'))}> Media </button>
 
     {/* ---------------------- */}
     <div className="search-bar">

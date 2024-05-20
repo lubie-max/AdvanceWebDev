@@ -51,11 +51,9 @@ const  imageBySearchSlice = createSlice({
 
         builder.addCase(
             getMedia.fulfilled, (state, actions)=>{
-                state.medialinks.mlinks.push(actions.payload) 
+                state.medialinks.mlinks.push(actions.payload.filter((l:string)=>l.endsWith('.mp4'))) 
             }
         )
-
-
      
 }
 
@@ -83,7 +81,8 @@ export const getMedia = createAsyncThunk(
     "imageBysearch/getMedia",
     async (url:string)=>{
         const data = await axios.get(url)
-        console.log(data.data[0])
+        console.log(data.data.slice(1,10))
+        
         return data.data
     }
 )
