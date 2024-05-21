@@ -20,49 +20,68 @@ const Main = () => {
   // }
   const dispatch = useAppDispatch()
 
-  const url =  `https://images-assets.nasa.gov/video/Artemis Onward to the Moon/Artemis Onward to the Moon`
 
  useEffect(()=>{
   // const items = getData[collection][items]
   // console.log(href, items.map((i)=> console.log(i.data)))
   console.log(items.slice(0,1))
-  console.log(links)
+  console.log(collection)
   console.log(
     'media L', medialink.mlinks
   )
  }, [])
-console.log(url)
+
+
+// -----------------
+
+const onEnterFun = (e: React.KeyboardEvent<HTMLInputElement>)=>{
+  console.log(e.key, e.currentTarget.value)
+  if(e.key === "Enter" && e.currentTarget.value != null){
+
+    dispatch(getImageBySearch(e.currentTarget.value))
+  }
+}
+
+
+
+
+
+
 //  console.log(getData?.map((item)=> console.log(item.data)))
   return (
 
    <>
+
+   {
+    <p color='cyan'>{href}</p>
+   }
    
    {
 
-    medialink.mlinks?.map((i, k)=><>
-    {/* <p color='green'>{i}</p> */}
-    <p key={k}>{i}</p>
+//     medialink.mlinks?.map((i, k)=><>
+//     {/* <p color='green'>{i}</p> */}
+//     <p key={k}> {i}, {`http://images-assets.nasa.gov/video/NHQ_2018_0131_Super Blue Moon Lunar Eclipse/NHQ_2018_0131_Super Blue Moon Lunar Eclipse~large.mp4`}</p>
 
-<div>
-    <video controls width="600" key={k}>
-      <source src={i} type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+// <div>
+//     <video controls width="600" key={k}>
+//       <source src={`${i[2]}`} type="video/mp4" />
+//       Your browser does not support the video tag.
+//     </video>
 
-</div>
-    </>)
+// </div>
+//     </>)
    }
    {/* 
    <img src = 'https://images-assets.nasa.gov/video/Artemis Onward to the Moon/Artemis Onward to the Moon~thumb.jpg'></img> */}
 
 
-      <button onClick ={()=> dispatch(getImageBySearch())} >Click me to get the data</button>
+      {/* <button onClick ={()=> dispatch(getImageBySearch())} >Click me to get the data</button> */}
 
 <button onClick={()=>dispatch(getMedia('https://images-assets.nasa.gov/video/NHQ_2018_0131_Super%20Blue%20Moon%20Lunar%20Eclipse/collection.json'))}> Media </button>
 
     {/* ---------------------- */}
-    <div className="search-bar">
-      <input type="text" placeholder="Search images..." />
+    <div className="search-container">
+      <input type="text" placeholder="Search images..."  onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>)=>onEnterFun(e)} />
   
     </div>
 

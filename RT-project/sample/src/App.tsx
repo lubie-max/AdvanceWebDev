@@ -1,6 +1,8 @@
 import Main from './Components/Main';
 import './App.css';
 
+import Home from './Components/Home';
+
 function App() {
  
   return (
@@ -8,7 +10,9 @@ function App() {
 
 
       <Main />
+      {/* <Home/> */}
    
+      
     </>
   );
 }

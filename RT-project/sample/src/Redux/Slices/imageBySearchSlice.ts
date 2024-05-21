@@ -6,7 +6,6 @@ import { Collection , MediaLinks } from "../Types/searchResponseTypes";
 
 axios.defaults.baseURL = `https://images-api.nasa.gov`
 
-// collection.items
 
 interface ImageState {
     collection: Collection;
@@ -37,9 +36,8 @@ const  imageBySearchSlice = createSlice({
     reducers: {},
     extraReducers: (builder)=>{
         builder.addCase(getImageBySearch.fulfilled,(state,actions)=>{
-            // state.data.push(actions.payload)
+         
             state.collection = actions.payload.collection
-            // state.collection 
         })
 
         builder.addCase(getImageBySearch.rejected,(state, actions)=>{
@@ -63,9 +61,9 @@ const  imageBySearchSlice = createSlice({
 export const getImageBySearch = createAsyncThunk(
     "imageBysearch/getImageBySearch",
 
-    async ()=>{
+    async (searchValue: string)=>{
         try{
-           const response = await axios.get('/search?q=moon')
+           const response = await axios.get(`/search?q=${searchValue}`)
            console.log('searchImage api response', response.data)
            return response.data
         }
@@ -79,8 +77,8 @@ export const getImageBySearch = createAsyncThunk(
 
 export const getMedia = createAsyncThunk(
     "imageBysearch/getMedia",
-    async (url:string)=>{
-        const data = await axios.get(url)
+    async (dataHref:string)=>{
+        const data = await axios.get(dataHref)
         console.log(data.data.slice(1,10))
         
         return data.data
