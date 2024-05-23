@@ -9,8 +9,8 @@ function App() {
     <>
 
 
-      <Main />
-      {/* <Home/> */}
+      {/* <Main /> */}
+      <Home/>
    
       
     </>

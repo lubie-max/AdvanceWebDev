@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import Carousel from 'react-bootstrap/Carousel'
 import SearchBar from "./SearchBar";
+import { useAppDispatch, useAppSelector } from "../Redux/hooks";
+import { getMedia } from "../Redux/Slices/imageBySearchSlice";
 
 const Home = () => {
+
+  const dispatch = useAppDispatch()
+  const {items, href, links} = useAppSelector((state)=> state.imageBySearchSlice.collection)
+  const  mLinks = useAppSelector((state)=>state.imageBySearchSlice.medialinks)
+  const popularUrl = `https://images-assets.nasa.gov/popular.json`
+
+  const defaultFilter = (url:string = popularUrl)=>{
+    // dispatch(getMedia(url))
+    // return mLinks.mlinks.filter((i)=>  i.endsWith('.mp4'))
+    return dispatch(getMedia(url))
+    
+  }
+
+  const memoDefaultFilter =  useMemo(() => defaultFilter(popularUrl), [mLinks])
+
+  useEffect(()=>{
+    defaultFilter()
+    console.log(mLinks?.mlinks)
+    console.log(memoDefaultFilter)
+  },[])
+
   return (
 <>
 <div className="">

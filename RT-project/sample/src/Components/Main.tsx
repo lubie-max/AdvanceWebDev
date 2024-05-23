@@ -22,8 +22,6 @@ const Main = () => {
 
 
  useEffect(()=>{
-  // const items = getData[collection][items]
-  // console.log(href, items.map((i)=> console.log(i.data)))
   console.log(items.slice(0,1))
   console.log(collection)
   console.log(
