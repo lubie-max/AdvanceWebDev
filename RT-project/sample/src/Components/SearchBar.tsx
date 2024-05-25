@@ -12,17 +12,17 @@ const SearchBar = () => {
   const popularUrl = `https://images-assets.nasa.gov/popular.json`
 
  
-  // useEffect(()=>{
-  //   // console.log(items.slice(0,1))
-  //   console.log(collection)
+  useEffect(()=>{
+    // console.log(items.slice(0,1))
+    console.log(collection)
  
-  //  }, [])
+   }, [collection])
 
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>)=>{
     console.log(e.currentTarget.value)
   // items?.map((i)=>console.log(i))
-    if (e.key === "Enter"  && e.currentTarget.value  ){
+    if (e.key === "Enter"  && e.currentTarget.value != " "  ){
 
       dispatch(getImageBySearch(e.currentTarget.value))
     }

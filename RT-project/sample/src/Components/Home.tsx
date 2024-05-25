@@ -14,21 +14,41 @@ const Home = () => {
   const defaultFilter = (url:string = popularUrl)=>{
     // dispatch(getMedia(url))
     // return mLinks.mlinks.filter((i)=>  i.endsWith('.mp4'))
-    return dispatch(getMedia(url))
+    // return dispatch(getMedia(url))
     
   }
 
-  const memoDefaultFilter =  useMemo(() => defaultFilter(popularUrl), [mLinks])
+  // const memoDefaultFilter =  useMemo(() => defaultFilter(popularUrl), [mLinks])
 
   useEffect(()=>{
-    defaultFilter()
+    
     console.log(mLinks?.mlinks)
-    console.log(memoDefaultFilter)
-  },[])
+    // console.log(memoDefaultFilter)
+  },[mLinks])
 
   return (
 <>
 <div className="">
+
+{
+
+
+<Carousel className="modal-content">
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src="http://images-assets.nasa.gov/video/NHQ_2018_0131_Super Blue Moon Lunar Eclipse/NHQ_2018_0131_Super Blue Moon Lunar Eclipse~medium_1.jpg"
+      alt="First slide"
+    />
+    <Carousel.Caption>
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+
+  </Carousel>
+
+}
 
 <Carousel className="modal-content">
   <Carousel.Item>
@@ -54,6 +74,7 @@ const Home = () => {
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </Carousel.Caption>
   </Carousel.Item>
+
   <Carousel.Item>
     <img
       className="d-block w-100"

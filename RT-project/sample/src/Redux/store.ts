@@ -1,12 +1,19 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import imageBySearchSlice from './Slices/imageBySearchSlice'
+// import logger from 'redux-logger'
 // ...
 
 export const store = configureStore({
   reducer: {
-   imageBySearchSlice
+   imageBySearchSlice,
   },
+
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
