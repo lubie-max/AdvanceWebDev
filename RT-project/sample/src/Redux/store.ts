@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import imageBySearchSlice from './Slices/imageBySearchSlice'
+import popularFilterSlice from './Slices/popularFilterSlice'
 // import logger from 'redux-logger'
 // ...
 
 export const store = configureStore({
   reducer: {
    imageBySearchSlice,
+   popularFilterSlice
+   
   },
 
   middleware: (getDefaultMiddleware) =>

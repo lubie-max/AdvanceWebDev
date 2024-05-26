@@ -91,7 +91,7 @@ export const getImageBySearch = createAsyncThunk(
  // media files  : collection >>[items] >> href.json
 export const getMedia = createAsyncThunk(
     "imageBysearch/getMedia",
-    async (dataHref: string = popularUrl) => {
+    async (dataHref: string) => {
         const response = await axios.get(dataHref) 
         return response.data
     }

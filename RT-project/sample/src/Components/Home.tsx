@@ -3,12 +3,16 @@ import Carousel from 'react-bootstrap/Carousel'
 import SearchBar from "./SearchBar";
 import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { getMedia } from "../Redux/Slices/imageBySearchSlice";
+import { getPopularFilter } from "../Redux/Slices/popularFilterSlice";
 
 const Home = () => {
 
   const dispatch = useAppDispatch()
   const {items, href, links} = useAppSelector((state)=> state.imageBySearchSlice.collection)
   const  mLinks = useAppSelector((state)=>state.imageBySearchSlice.medialinks)
+
+  const collection = useAppSelector((state)=> state.popularFilterSlice.collection)
+
   const popularUrl = `https://images-assets.nasa.gov/popular.json`
 
   const defaultFilter = (url:string = popularUrl)=>{
@@ -22,9 +26,14 @@ const Home = () => {
 
   useEffect(()=>{
     
-    console.log(mLinks?.mlinks)
+    // console.log(mLinks?.mlinks)
+
+    dispatch(getPopularFilter(popularUrl))
+    console.log('popular filter collection', collection)
+
+    // dispatch(getMedia(popularUrl))
     // console.log(memoDefaultFilter)
-  },[mLinks])
+  },[])
 
   return (
 <>

@@ -5,8 +5,8 @@ export interface Collection {
     version:  string;
     href:     string;
     items:    Item[];
-    metadata: Metadata | 0;
-    links:    CollectionLink[];
+    metadata?: Metadata | 0;
+    links?:    CollectionLink[];
 }
 
 export interface Item {
@@ -71,3 +71,6 @@ export interface Metadata {
 export interface MediaLinks {
    mlinks : string[]
 }
+
+//  =------------------------------ popular filter
+
