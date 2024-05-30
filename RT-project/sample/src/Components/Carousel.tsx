@@ -3,29 +3,58 @@ import { Item } from "../Redux/Types/searchResponseTypes";
 import React, { useEffect } from "react";
 
 interface itemData {
-  item: Item;
+  item: [Item];
 }
 const CarouselComponent = (props: itemData) => {
   const { item } = props;
 
-  const {href, data , links} = item
+//   const {href, data , links} = item
 
-  const thumbnail = links?.find(link => link.rel === "preview")?.href
+//   const thumbnail = links?.find(link => link.rel === "preview")?.href
 
-//   const videosWithPreview = item.filter(i => 
-//     i.links?.some(link => link.rel === 'preview')
-//   );
+  const videosWithPreview = item.filter(i => 
+    i.links?.some(link => link.rel === 'preview')
+  );
 
-  useEffect(() => {
-    console.log("item ", item);
-    // console.log("videosWithPreview", videosWithPreview);
-    // console.log("links", links?.filter(thumbnail))
-  }, []);
 
   return (
     <>
+
+
+{/* <Carousel className="modal-content"> */}
+      {videosWithPreview.map((item, index) => {
+        const { links, href } = item;
+        const thumbnailLink = links?.find(link => link.rel === 'preview')?.href;
+
+        return (
+          <Carousel.Item key={index}>
+            {thumbnailLink && (
+              <img
+                className="d-block w-100"
+                src={thumbnailLink}
+                alt={`Slide ${index}`}
+              />
+            )}
+            <Carousel.Caption>
+              <h3>Video {index + 1}</h3>
+              <p>
+                Video description or additional details here.
+              </p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        );
+      })}
+    {/* </Carousel> */}
+
+
+
+
+
+    {/* -------------------------- */}
+
+
     {/* <Carousel> */}
-{
+{/* {
     thumbnail && 
           <>
             <Carousel.Item>
@@ -44,7 +73,7 @@ const CarouselComponent = (props: itemData) => {
             </Carousel.Item>
           </>
 
-}
+} */}
     {/* </Carousel> */}
 
 

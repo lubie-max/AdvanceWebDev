@@ -28,7 +28,7 @@
 
 
 .search-bar {
-  position: absolute;
+  position: sticky;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
@@ -76,4 +76,86 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-color: #ebe9e9;
   outline: none;
+}
+
+
+/* ----------------------------------- Grid css */
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  padding: 100px;
+  object-fit: cover;
+}
+
+.grid-item {
+  background-color: #1c1c1c;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grid-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.thumbnail {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: fill;
+}
+
+.no-thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .grid-container {
+    padding: 32px;
+    gap: 24px;
+  }
+}
+
+/* ---------------------------- grid component play button css */
+
+
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.grid-item:hover .play-button-overlay {
+  opacity: 1;
+}
+
+.play-icon {
+  font-size: 2rem;
+  color: white;
 }

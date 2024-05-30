@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from "../Redux/hooks";
 import { getMedia } from "../Redux/Slices/imageBySearchSlice";
 import { getPopularFilter } from "../Redux/Slices/popularFilterSlice";
 import CarouselComponent from "./Carousel";
+import GridComponent from "./GridComponent";
 
 const Home = () => {
   const dispatch = useAppDispatch();
@@ -16,30 +17,36 @@ const Home = () => {
 
   const popularUrl = `https://images-assets.nasa.gov/popular.json`;
 
-  const defaultFilter = (url: string = popularUrl) => {
-    // dispatch(getMedia(url))
-    // return mLinks.mlinks.filter((i)=>  i.endsWith('.mp4'))
-    // return dispatch(getMedia(url))
-  };
-
-  // const memoDefaultFilter =  useMemo(() => defaultFilter(popularUrl), [mLinks])
-
   useEffect(() => {
     dispatch(getPopularFilter(popularUrl));
-    console.log("popular filter collection", items);
+    // console.log("popular filter collection", items.map((i)=));
+    items.map((i)=>console.table(i))
   }, []);
 
   return (
     <>
-      <Carousel className="modal-content">
-        {items?.map((item, index) => {
+          {/* <Carousel className="modal-content">
+        {items?.map((item, i) => {
           return (
             <>
-              <CarouselComponent key={index} item={item} />
+              <CarouselComponent key={i} item={[item]} />
             </>
           );
         })}
-      </Carousel>
+        </Carousel> */}
+
+<div className="grid-container">
+{
+
+  items.map((item , i)=><>
+  
+  <GridComponent item={item} key={i}/>
+
+  
+  </>)
+
+}
+  </div>
 
       <div className="search-bar">
         {/* <input type="text" placeholder="Search..." /> */}
