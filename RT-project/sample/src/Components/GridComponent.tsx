@@ -25,16 +25,42 @@ const GridComponent = (props: itemData) => {
                   <span className="play-icon">▶</span>
                 </div>
               </div>
+
+              <div>
+<div className="popup-viewer">
+         <video className="popup-content" controls>
+           <source src={thumbLinks} type="video/mp4" />
+           Your browser does not support the video tag.
+         </video>
+       </div>
+   </div>
             </>
           ) : (
             <>
               <div className="grid-item">
                 <img src={thumbLinks} alt="" className="thumbnail" style={{ objectFit : 'cover', width: '100%', height: '100%' }} />
               </div>
+
+              <div>
+        <div className="popup-viewer">
+         <video className="popup-content" controls>
+           <source src={thumbLinks} type="video/mp4" />
+           Your browser does not support the video tag.
+         </video>
+       </div>
+   </div>
             </>
           );
 
+          <div>
 
+       <div className="popup-viewer">
+                <video className="popup-content" controls>
+                  <source src={thumbLinks} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+          </div>
       
 
         })}

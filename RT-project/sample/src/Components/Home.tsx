@@ -48,6 +48,16 @@ const Home = () => {
 }
   </div>
 
+  <div>
+  <div className="popup-viewer">
+         <video className="popup-content" controls>
+           <source src='http://images-assets.nasa.gov/video/JPL-20240301-WHATSUf-0001-Whats_Up_March_2024cc/JPL-20240301-WHATSUf-0001-Whats_Up_March_2024cc~orig.mp4' type="video/mp4" />
+           Your browser does not support the video tag.
+         </video>
+       </div>
+   </div>
+
+
       <div className="search-bar">
         {/* <input type="text" placeholder="Search..." /> */}
         <SearchBar />
