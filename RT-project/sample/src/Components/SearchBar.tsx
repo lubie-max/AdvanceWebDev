@@ -12,11 +12,11 @@ const SearchBar = () => {
   const popularUrl = `https://images-assets.nasa.gov/popular.json`
 
  
-  useEffect(()=>{
-    // console.log(items.slice(0,1))
-    console.log(collection)
+  // useEffect(()=>{
+  //   // console.log(items.slice(0,1))
+  //   console.log(collection)
  
-   }, [collection])
+  //  }, [collection])
 
 
   const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>)=>{
