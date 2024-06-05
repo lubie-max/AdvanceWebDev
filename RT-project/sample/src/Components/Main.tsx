@@ -15,9 +15,7 @@ const Main = () => {
   const medialink = useAppSelector((state)=> state.imageBySearchSlice.medialinks)
 
 
-  // const checkMediaType = (m_type)=>{
-   
-  // }
+ 
   const dispatch = useAppDispatch()
 
 
@@ -33,7 +31,7 @@ const Main = () => {
 // -----------------
 
 const onEnterFun = (e: React.KeyboardEvent<HTMLInputElement>)=>{
-  console.log(e.key, e.currentTarget.value)
+  // console.log(e.key, e.currentTarget.value)
   if(e.key === "Enter" && e.currentTarget.value != null){
 
     dispatch(getImageBySearch(e.currentTarget.value))
